@@ -1,0 +1,200 @@
+# Imagcompmatlab is a preliminary draft that can be used to study image compression using DCT transform. This script is designed extensively for research purpose without considering computational overhead during computations.
+Run main.m file. 
+
+
+A user shall input the required function argument as directed and hinted below.
+A MATLAB termainal ip/op is  included herewith.
+
+
+
+ans =
+
+    'Make sure directory of image file and executing MATLAB script file is same: '
+
+enter the file name, input string inside single quotation mark: 
+=
+    'marbles4.tiff'
+
+x =
+
+    'marbles4.tiff'
+
+
+ans = 
+
+  struct with fields:
+
+                     Filename: '..\marbles4.tiff'
+                  FileModDate: '03-Jan-2023 15:22:21'
+                     FileSize: 1030656
+                       Format: 'tif'
+                FormatVersion: []
+                        Width: 840
+                       Height: 654
+                     BitDepth: 24
+                    ColorType: 'truecolor'
+              FormatSignature: [73 73 42 0]
+                    ByteOrder: 'little-endian'
+               NewSubFileType: 0
+                BitsPerSample: [8 8 8]
+                  Compression: 'LZW'
+    PhotometricInterpretation: 'RGB'
+                 StripOffsets: [8 5848 11771 17729 23763 29953 36076 42098 48117 54112 60059 66118 72256 78510 84672 90840 … ]
+              SamplesPerPixel: 3
+                 RowsPerStrip: 4
+              StripByteCounts: [5840 5923 5958 6034 6190 6123 6022 6019 5995 5947 6059 6138 6254 6162 6168 5998 6119 6190 … ]
+                  XResolution: 96
+                  YResolution: 96
+               ResolutionUnit: 'Inch'
+                     Colormap: []
+          PlanarConfiguration: 'Chunky'
+                    TileWidth: []
+                   TileLength: []
+                  TileOffsets: []
+               TileByteCounts: []
+                  Orientation: 1
+                    FillOrder: 1
+             GrayResponseUnit: 0.0100
+               MaxSampleValue: [255 255 255]
+               MinSampleValue: [0 0 0]
+                 Thresholding: 1
+                       Offset: 1029136
+                    Predictor: 'Horizontal differencing'
+
+
+ans = 
+
+  struct with fields:
+
+                     Filename: '..\marbles4.tiff'
+                  FileModDate: '03-Jan-2023 15:22:21'
+                     FileSize: 1030656
+                       Format: 'tif'
+                FormatVersion: []
+                        Width: 840
+                       Height: 654
+                     BitDepth: 24
+                    ColorType: 'truecolor'
+              FormatSignature: [73 73 42 0]
+                    ByteOrder: 'little-endian'
+               NewSubFileType: 0
+                BitsPerSample: [8 8 8]
+                  Compression: 'LZW'
+    PhotometricInterpretation: 'RGB'
+                 StripOffsets: [8 5848 11771 17729 23763 29953 36076 42098 48117 54112 60059 66118 72256 78510 84672 90840 … ]
+              SamplesPerPixel: 3
+                 RowsPerStrip: 4
+              StripByteCounts: [5840 5923 5958 6034 6190 6123 6022 6019 5995 5947 6059 6138 6254 6162 6168 5998 6119 6190 … ]
+                  XResolution: 96
+                  YResolution: 96
+               ResolutionUnit: 'Inch'
+                     Colormap: []
+          PlanarConfiguration: 'Chunky'
+                    TileWidth: []
+                   TileLength: []
+                  TileOffsets: []
+               TileByteCounts: []
+                  Orientation: 1
+                    FillOrder: 1
+             GrayResponseUnit: 0.0100
+               MaxSampleValue: [255 255 255]
+               MinSampleValue: [0 0 0]
+                 Thresholding: 1
+                       Offset: 1029136
+                    Predictor: 'Horizontal differencing'
+
+Select either of matrix from: R1,G1,B1,Y,U,V,Y2,Cb,Cr,Y1,I,Q,Gray1,Gray2:
+=
+    Gray1
+
+enter block size N representing N*N pixel:
+=
+    8
+
+select input image matrix existing in workspace to plot: 
+=
+    Gray1
+
+enter the number of row to plot intensity value of pixel element consisting along rows:
+=
+    10
+
+select dct matrix to plot: 
+=
+    mat2quant
+
+Enter the scaling factor f that is  divisor to the DCT coefficient: 
+=
+    5
+
+scal_f =
+
+     5
+
+Enter the offset value to be applied to DCT coefficient:
+=
+    min(min(mat2quant))
+
+pos_off =
+
+     -290.7736
+
+enter the number of bits to represent decision level for llyod quantizer:
+=
+    8
+
+select input image matrix existing in workspace to write input image in binary format 
+ :
+ =
+    Gray1
+ 
+Create the encoded image huffman code file of .bin extension inside single quotation:
+=
+    'opp.bin'
+  
+enter the encoded image huffman dict file name (.bin extension). You can use same huffman 
+ code file to append the dictionary result : 
+ =
+    'opp.bin'
+ 
+Create the input test image file  (.bin extension) inside single quotation 
+=
+    'ipp.bin'
+  
+enter the input image type uint8 or uint16 or uint24 bits per sample in single quotatioin:
+=
+    'uint8'
+
+ipimg_btspersam =
+
+    'uint8'
+
+Select mat2inv matrix existing in workspace to perform inverse DCT/DWT: 
+=
+    mat2inv
+
+enter block size N representing N*N pixel to perform inverse DCT/DWT: 
+=
+    8
+
+Select either of matrix from: R1,G1,B1,Y,U,V,Y2,Cb,Cr,Y1,I,Q,Gray1,Gray2:  
+=
+    Gray1
+
+enter the input image maximum intensity value: 
+=
+              255
+
+    -----mean square error---
+            51.7944
+
+    ---Peak signal to noise ratio---
+            30.9880
+
+enter the input image file name inside single quotation: 
+=
+    'input'
+enter the output image file name inside single quotation:
+=
+    'output'
+>> 
