@@ -3,7 +3,7 @@
 function [mat2encode,distor,rel_distor,d,r]=llyod_quant(mat2quant_scal_f)
 % reducing computational overhead by rounding. This can lead to high error
 % and is optional
-mat2quant_scal_f=round(mat2quant_scal_f)
+mat2quant_scal_f=round(mat2quant_scal_f);
 %declaring quantization matrix
 quant_mat=zeros(size(mat2quant_scal_f));
 bts=input('enter the number of bits to represent decision level for llyod quantizer: ');
